@@ -1,14 +1,12 @@
 const { expect } = require("chai");
 
-describe("Greeter", function() {
-  it("Should return the new greeting once it's changed", async function() {
-    const Greeter = await ethers.getContractFactory("Greeter");
-    const greeter = await Greeter.deploy("Hello, world!");
+describe("Zombie Factory", function() {
+  it("It should show 16 DNA Digits", async function() {
+    const ZombieFactory = await ethers.getContractFactory("ZombieFactory");
+    const zombieFactory = await ZombieFactory.deploy();
     
-    await greeter.deployed();
-    expect(await greeter.greet()).to.equal("Hello, world!");
+    await zombieFactory.deployed();
+    expect(await zombieFactory.dnaDigits()).to.equal(16);
 
-    await greeter.setGreeting("Hola, mundo!");
-    expect(await greeter.greet()).to.equal("Hola, mundo!");
   });
 });
